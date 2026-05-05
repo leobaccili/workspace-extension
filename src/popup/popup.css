@@ -1,0 +1,253 @@
+:root {
+  --bg-1: #f5f1e8;
+  --bg-2: #f9f7f2;
+  --panel: rgba(255, 255, 255, 0.72);
+  --text: #2d2117;
+  --muted: #6b5746;
+  --accent: #b24a2d;
+  --accent-strong: #90341d;
+  --line: rgba(87, 66, 49, 0.18);
+  --ok: #1f7a5f;
+  --danger: #9d3028;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 380px;
+  background:
+    radial-gradient(900px 350px at 110% -10%, rgba(178, 74, 45, 0.25), transparent 60%),
+    radial-gradient(500px 250px at -10% 110%, rgba(68, 124, 97, 0.2), transparent 55%),
+    linear-gradient(150deg, var(--bg-1), var(--bg-2));
+  color: var(--text);
+  font-family: "Trebuchet MS", "Gill Sans", sans-serif;
+}
+
+.app {
+  padding: 14px;
+}
+
+.hero h1 {
+  margin: 0;
+  letter-spacing: 0.6px;
+}
+
+.hero p {
+  margin: 6px 0 14px;
+  color: var(--muted);
+}
+
+.save-panel,
+.list-panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px;
+  backdrop-filter: blur(6px);
+}
+
+.save-panel label {
+  display: inline-block;
+  margin-bottom: 8px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+  color: var(--muted);
+}
+
+.row {
+  display: flex;
+  gap: 8px;
+}
+
+input,
+button {
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  font: inherit;
+}
+
+input {
+  flex: 1;
+  padding: 10px;
+  background: #ffffffb6;
+}
+
+.icon-btn {
+  width: 34px;
+  min-width: 34px;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.color-chip {
+  width: 34px;
+  min-width: 34px;
+  height: 34px;
+  padding: 0;
+  border-radius: 10px;
+  border: 2px solid #ffffff;
+  outline: 1px solid var(--line);
+}
+
+.color-popover {
+  position: fixed;
+  z-index: 9999;
+  width: 170px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 6px;
+  padding: 8px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: #fffbf3;
+  box-shadow: 0 8px 20px rgba(45, 33, 23, 0.2);
+}
+
+.swatch-btn {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  outline: 1px solid rgba(0, 0, 0, 0.18);
+  cursor: pointer;
+  padding: 0;
+}
+
+.swatch-btn:hover {
+  transform: scale(1.05);
+}
+
+button {
+  padding: 10px 12px;
+  background: var(--accent);
+  color: #fff;
+  border-color: transparent;
+  cursor: pointer;
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+button:hover {
+  background: var(--accent-strong);
+  transform: translateY(-1px);
+}
+
+.list-panel {
+  margin-top: 12px;
+}
+
+.section-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.section-title h2 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.section-title a {
+  color: var(--accent-strong);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.workspace-list {
+  display: grid;
+  gap: 8px;
+  max-height: 320px;
+  overflow: auto;
+}
+
+.workspace-item {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fff6ec;
+  padding: 10px;
+  animation: fade-in 220ms ease;
+  border-left-width: 8px;
+}
+
+.workspace-title-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.theme-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  flex: 0 0 auto;
+}
+
+.workspace-item h3 {
+  margin: 0 0 4px;
+  font-size: 14px;
+}
+
+.workspace-meta {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.workspace-actions {
+  margin-top: 8px;
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.workspace-actions .icon-btn {
+  width: 30px;
+  min-width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.workspace-actions button.alt {
+  background: #ece0d4;
+  color: #4b3727;
+}
+
+.workspace-actions button.warn {
+  background: #d95c47;
+}
+
+.status {
+  min-height: 16px;
+  margin: 10px 2px 0;
+  font-size: 12px;
+}
+
+.status.ok {
+  color: var(--ok);
+}
+
+.status.error {
+  color: var(--danger);
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(3px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

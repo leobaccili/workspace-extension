@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gerenciar Workspaces</title>
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body>
+    <main class="layout">
+      <header class="header">
+        <h1>Workspace Manager</h1>
+        <p>Painel de gerenciamento de espaços de trabalho.</p>
+      </header>
+
+      <section class="panel import-export">
+        <div>
+          <h2>Importar e exportar</h2>
+          <p>Salve backup dos seus workspaces em JSON.</p>
+        </div>
+        <div class="row">
+          <button id="exportButton">Exportar JSON</button>
+          <label for="importInput" class="button alt">Importar JSON</label>
+          <input id="importInput" type="file" accept="application/json" />
+        </div>
+      </section>
+
+      <section class="panel search">
+        <input id="searchInput" type="search" placeholder="Buscar workspace por nome" />
+      </section>
+
+      <section class="panel">
+        <h2>Workspaces salvos</h2>
+        <div id="workspaceList" class="list"></div>
+      </section>
+
+      <p id="status" class="status" aria-live="polite"></p>
+    </main>
+
+    <script src="options.js" type="module"></script>
+  </body>
+</html>

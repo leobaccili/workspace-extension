@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "Workspace Manager for Chrome",
+  "description": "Gerencie espaços de trabalho de abas no estilo Workspaces do Edge.",
+  "version": "1.0.0",
+  "permissions": ["storage", "tabs", "tabGroups", "windows"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "src/background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "Workspace Manager",
+    "default_popup": "src/popup/popup.html"
+  },
+  "options_page": "src/options/options.html"
+}

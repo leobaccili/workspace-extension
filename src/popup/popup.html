@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Workspace Manager</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="hero">
+        <h1>Workspaces</h1>
+        <p>Salve e recupere conjuntos de abas.</p>
+      </header>
+
+      <section class="save-panel">
+        <label for="workspaceName">Nome</label>
+        <div class="row">
+          <input id="workspaceName" type="text" placeholder="Ex.: Projeto Cliente A" />
+          <button id="selectThemeColorButton" class="color-chip" title="Selecionar cor" aria-label="Selecionar cor"></button>
+          <button id="saveWorkspaceButton" class="icon-btn" title="Salvar workspace (abas atuais)" aria-label="Salvar workspace">💾</button>
+          <button id="saveEmptyWorkspaceButton" class="icon-btn" title="Criar workspace vazio" aria-label="Criar workspace vazio">📄</button>
+        </div>
+      </section>
+
+      <section class="list-panel">
+        <div class="section-title">
+          <h2>Seus workspaces</h2>
+          <a id="openOptions" href="#">Gerenciar</a>
+        </div>
+        <div id="workspaceList" class="workspace-list"></div>
+      </section>
+
+      <p id="status" class="status" aria-live="polite"></p>
+    </main>
+
+    <script src="popup.js" type="module"></script>
+  </body>
+</html>
